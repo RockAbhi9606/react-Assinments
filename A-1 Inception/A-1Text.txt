@@ -1,0 +1,31 @@
+Q.1 What is Emmet?
+Emmit is the essential toolkit for web developers.It allows you to type shortcuts that are then expanded into full fledged boiler plate code for writing HTML and CSS.
+
+Q.2 Difference between Library and framework?
+A key difference between the two is Inversion of control. When using a library, the control remains with the developer who tells the application when to call library functions. When using a framework, the control is reversed, which means that the framework tells the developer where code needs to be provided and calls at as it requires.
+
+Q.3 What is CDN ? and why it is use?
+A CDN, or Content Delivery Network, is a group of servers spread out around the world. It helps deliver web content like images, videos, and web pages to users faster. CDNs are designed to improve the performance, reliability, and scalability of web services.CDNs enhance the speed, reliability, and security of delivering content over the internet, making them a critical component of modern web infrastructure.
+
+Q.4 Why react is known as react?
+React is a JavaScript Library. The name 'React' was chosen because the library was designed to allow developers to react to changes in state and data within an application, and to update the user interface in a declarative and efficient manner.
+
+Q.5 What is CrossOrigin in Script tag?
+The crossorigin attribute in the script tag enables Cross-Origin Resource Sharing (CORS) for loading external JavaScript files from different origin than the hosting web page. This allows the script to access resources from the server hosting the script, such as making HTTP requests or accessing data.
+
+Q.6 What is the difference between react and reactDOM?
+React and ReactDOM are both libraries that are part of the React ecosystem.React provides the tools for building and managing the UI components, while ReactDOM provides the means to render those components to the web browser's DOM.
+
+Q.7 What is difference between react.development.js and react.production.js files via CDN?
+react.development.js:-
+Purpose: Used for development.
+Features: Includes helpful error messages, warnings, and debugging tools.
+Size: Larger due to extra code for debugging.
+react.production.js:-
+Purpose: Used for production.
+Features: Optimized for performance, no extra debugging tools or warnings.
+Size: Smaller and faster to load.
+In summary: Use react.development.js while building your app to catch errors early, and switch to react.production.js when deploying to ensure better performance.
+
+Q.8 What is async and defer?
+When you include a script with the async attribute, it tells the browser to download the script in the background while still parsing the HTML. Once the script is downloaded, it runs immediately, even if the HTML isn't fully parsed yet. On the other hand, using the defer attribute also downloads the script in the background, but the script will only run after the HTML document has finished parsing
