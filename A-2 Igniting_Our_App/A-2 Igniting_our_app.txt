@@ -1,5 +1,5 @@
 ### What is 'NPM'?
-NPM stands for Node Package Manager. It is a tool that allows developers to install, update, and manage libraries and dependencies for their Node.js projects. It also provides a registry where developers can publish and share their own packages.
+NPM is a package manager for JavaScript that is used for managing dependencies of JavaScript applications. It was originally developed as a package manager for Node.js, but it has evolved to handle front-end and back-end packages for JavaScript projects.It is a tool that allows developers to install, update, and manage libraries and dependencies for their Node.js projects. It also provides a registry where developers can publish and share their own packages.
 
 ### What is 'Parcel/Webpack'? Why do we need it?
 Parcel and Webpack are module bundlers for JavaScript applications. They take modules with dependencies and bundle them into static assets that can be served to the browser. We need them to optimize our code for production, handle complex dependency graphs, and support modern JavaScript features like ES6 modules.
@@ -27,6 +27,25 @@ HMR is a feature that allows modules to be updated in the browser at runtime wit
 4. *Built-in Caching*: Speeds up subsequent builds by caching intermediate results.
 5. *Automatic Code Splitting*: Optimizes loading by splitting code into smaller bundles.
 
+    1. Dev builds
+    2. local server
+    3. HMR = Hot Module Replacement
+    4. File Watching Algorithms - written in c++ - on every save it create build for us.
+    5. Caching - Faster Builds
+    6. Image Optomization
+    7. Minification
+    8. Bundling
+    9. Compress of our files
+    10. Consistent Hashing
+    11. Code Splitting
+    12. Differential Bundling:- supports older browsers
+    13. Diagnostics
+    14. Error handling
+    15. HTTPS- parcel has that feture as well
+    16. Zero configuration
+    17. Tree Shaking - remove unused code
+    18. Different dev and prod bundles
+
 ### What is .gitignore? What should we add and not add into it?
 .gitignore is a file specifying which files and directories to ignore in a Git repository. We should add files that are not meant to be shared, such as configuration files, build artifacts, and node_modules. We should not add source code or files necessary for the application to run.
 
@@ -52,8 +71,11 @@ Browserslist is a tool that allows specifying which browsers should be supported
 - *Parcel*: A zero-config bundler with built-in features for fast development and production builds.
 
 ### Read about: ^ - caret and ~ - tilde
-- *Caret (^)*: Allows updates to versions with the same major version (e.g., ^1.2.3 allows 1.3.0 but not 2.0.0).
-- *Tilde (~)*: Allows updates to versions with the same minor version (e.g., ~1.2.3 allows 1.2.4 but not 1.3.0).
+carrit updates the minor versions but tilde updates the major versions.
+
+~version “Approximately equivalent to version”, will automatically update you to all future patch versions that are backwards-compatible, without incrementing the minor version. ~1.2.3 will use releases from 1.2.3 to < 1.3.0.
+
+^version “Compatible with version”, will automatically update you to all future minor/patch versions that are backwards-compatible, without incrementing the major version. ^1.2.3 will use releases from 1.2.3 to < 2.0.0.
 
 ### Read about Script types in HTML (MDN Docs)
 HTML script types define how the script should be interpreted by the browser, such as text/javascript, module, or nomodule. They help control the loading and execution of scripts in the document.
