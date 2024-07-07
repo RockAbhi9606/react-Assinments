@@ -18,7 +18,8 @@
     </div>
 </div>
 */
-
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 const container = React.createElement("div", { className: "container" },
     React.createElement("div", { className: "sub-container" },
