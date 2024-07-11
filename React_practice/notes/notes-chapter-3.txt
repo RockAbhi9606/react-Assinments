@@ -1,0 +1,23 @@
+1. React element is an object.
+2. JSX is not html in javascript it is html or xml like syntax.
+3. JSX (transpiled before it reaches the JS) - parcel - babel
+4.for attribute to use camelCase.
+5. 
+/*
+React Component-two ways of components 
+ 1. Class Based Components -old
+ 2. Functional Components-new
+
+ 1.Functional Components-
+    - name should be start with capital letter.
+    - A function which returns a peice of JSX called as funtional component.
+
+    Q. What is Componenet Composition
+    one componenet inside another called as componenet composition.
+ */
+
+
+
+
+
+

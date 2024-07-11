@@ -1,0 +1,30 @@
+* What is Jsx?
+    JSX (JavaScript XML) is a syntax that looks like HTML but is used in JavaScript. It's mainly used in React to describe what the user interface should look like. JSX makes it easier to write and understand the structure of your UI components. Although it looks like HTML, it gets converted to JavaScript objects by tools like Babel.
+
+* Super power of JSX?
+    The superpower of JSX is that it lets you write HTML-like code in JavaScript, making it easier to create and understand user interfaces in React. It allows you to embed JavaScript logic directly in your UI code, improves readability, and helps React efficiently update the UI.
+
+    also:-
+    1) Sanitizes the data
+    If someone gets access to your JS code and sends some malicious data which will then get displayed on the screen, that attack is called cross-site scripting.
+    It can read cookies, local storage, session storage, get cookies, get info about your device, and read data. JS takes care of your data.
+    If some API passes some malicious data JSX will escape it. It prevents cross-site scripting and sanitizes the data before rendering
+    2) Makes code readable
+    JSX makes it easier to write code as we are no longer creating elements using React.createElement ( )
+    3) Makes code simple and elegant
+    4) Show more useful errors and warnings
+    5) JSX prevents code injections (attacks)
+
+* what role of type attribute in script tag?what options can i used there?
+    The type attribute in a <script> tag specifies the type of script.
+
+    Common Options:
+
+        text/javascript: ext/javascript: This is the default value and is used for JavaScript code. Even if omitted, browsers assume the script is JavaScript.Default for JavaScript (can be omitted).
+
+        module: module: This value indicates that the script should be treated as an ES6 module. This allows you to use import and export statements in your JavaScript.
+
+        application/json: For JSON data within the script.
+
+* 
+
