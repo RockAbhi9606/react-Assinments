@@ -57,7 +57,11 @@ const Header = () => (
                 <span>Contact</span>
             </div>
             <div className="right-side">
-                <i class="login-image fa-solid fa-user" title="LogIn/SignUp"></i>
+                <div className="seach-container">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search" id="search-input" placeholder='Search' />
+                </div>
+                <i className="login-image fa-solid fa-user" title="LogIn/SignUp"></i>
             </div>
         </div>
         <Heading />
