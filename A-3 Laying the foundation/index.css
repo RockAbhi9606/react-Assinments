@@ -18,7 +18,7 @@ body {
 }
 
 .left-side {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     display: flex;
     width: 100%;
@@ -47,21 +47,21 @@ body {
 }
 
 .login-image {
-    cursor: pointer;
     scale: 1.2;
 }
 
 .right-side {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 25px;
+    cursor: pointer;
 }
 
 .left-side span {
     cursor: pointer;
 }
 
-.title span{
+.title span {
     text-decoration: underline;
 }
 

@@ -57,7 +57,7 @@ const Header = () => (
                 <span>Contact</span>
             </div>
             <div className="right-side">
-                <i class="login-image fa-solid fa-user"></i>
+                <i class="login-image fa-solid fa-user" title="LogIn/SignUp"></i>
             </div>
         </div>
         <Heading />
