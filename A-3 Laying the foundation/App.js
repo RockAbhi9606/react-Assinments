@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import myLogo from './images/my-logo-transparent.png'
 import "./index.css"
 
 /*Question:
@@ -46,7 +47,7 @@ const Heading = () => (
 const Header = () => (
     <>
         <div className="header-container">
-            <i class="img-responsive fa-sharp fa-solid fa-blog"></i>
+            <img className='img-responsive' src={myLogo} alt="myLogo" />
             <div className="left-side">
                 <span>Home</span>
                 <span>About</span>
