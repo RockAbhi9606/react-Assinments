@@ -29,7 +29,7 @@ import "./index.css"
 //Creating functional component for the same
 
 const Title = () => (
-    <h1 className="main-title">Main Heading</h1>
+    <h1 className="main-title">React Playground</h1>
 )
 
 //Componenet Composition
@@ -37,9 +37,12 @@ const Heading = () => (
     <>
         <Title />
         <div className="title">
-            <h1 className="h1-heading">This is h1</h1>
-            <h2 className="h2-heading">This is h2</h2>
-            <h3 className="h3-heading">This is h3</h3>
+            <div className="my-logo">
+                <img src={myLogo} alt="mylogo" />
+            </div>
+            <h1 className="h1-heading"><span>Empower</span> yourself with belief in your ability to create positive change and inspire others</h1>
+            <h2 className="h2-heading">Embrace the power within you to uplift and <span>inspire</span> those around you.</h2>
+            <h3 className="h3-heading">Unlock your potential to <span>achieve</span> greatness and surpass all expectations</h3>
         </div>
     </>
 )
