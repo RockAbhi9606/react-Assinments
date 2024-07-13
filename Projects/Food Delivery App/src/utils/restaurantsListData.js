@@ -1,7 +1,7 @@
 export const restaurantsListData = [
   {
     "info": {
-      "id": "65797",
+      "id": "65796",
       "name": "Atithe Restrorent",
       "cloudinaryImageId": "r4ufflqojich0r29efvc",
       "locality": "Koramangala",

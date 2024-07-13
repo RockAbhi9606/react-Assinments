@@ -1,0 +1,32 @@
+.location-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px 120px;
+    gap: 50px;
+}
+
+hr {
+    background-color: red;
+    margin-inline: 130px;
+    margin-bottom: 40px;
+    position: relative;
+    top: 50px;
+}
+
+.location {
+    font-size: 26px;
+    left: 150px;
+    font-weight: 400;
+    position: absolute;
+}
+
+.location span {
+    color: red;
+}

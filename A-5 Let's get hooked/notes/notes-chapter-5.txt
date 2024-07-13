@@ -1,0 +1,21 @@
+- Two types of exporters
+
+   -Default components --dont use {} while imports
+      --export default ComponentName
+   -named components -- use {} while imports
+      --export const namedComponentName = () =>{}
+
+-React Hooks --
+  --Normal Js utility functions --
+    -useState - superPowerful state variables
+    -useEffect 
+
+
+--useState:- when state variables changes react component is rendered.
+
+--virtual DOM - is representation on a actual DOM
+  --normal js Object
+
+  --react Fiber-learn
+
+   
