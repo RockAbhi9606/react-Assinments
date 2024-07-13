@@ -52,6 +52,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 //How to render functional componenet
 root.render(<HeadingComponents2 />);
 
+------------------------------------------------------------------------------------------------
+
+-props - props is argument pass to the component.
+-config-driven-UI:-
 
 
 

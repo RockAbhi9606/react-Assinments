@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px 50px;
+}
+
+.logo {
+    width: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.location-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.right-side {
+    display: flex;
+    gap: 40px;
+}
+
+.right-side span {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px 120px;
+    gap: 50px;
+}
+
+hr {
+    background-color: red;
+    margin-inline: 130px;
+    margin-bottom: 40px;
+    position: relative;
+    top: 50px;
+}
+
+.location {
+    font-size: 26px;
+    left: 150px;
+    font-weight: 400;
+    position: absolute;
+}
+
+.select-city-container {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    margin-left: 12px;
+}
+
+.select-city-container .select-city {
+    text-decoration: underline;
+    margin-right: 5px;
+}
+
+.select-city:hover {
+    color: red;
+}
+
+.location span {
+    color: red;
+}
+
+.restrorent-card {
+    max-width: 280px;
+    border-radius: 12px;
+    padding: 0px;
+    margin-block-end: 0px;
+    display: grid;
+    -webkit-box-align: start;
+}
+
+.restrorent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.restrorent-card:hover .badge {
+    display: block;
+}
+
+.badge {
+    display: none;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 24px 4px 7px 0;
+    width: 87px;
+    height: 25px;
+    transform: translateX(-7px);
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    margin-top: -7px;
+    text-align: center;
+}
+
+.restrorent-card p {
+    margin: 0;
+}
+
+.rating-km {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.rating-km i {
+    scale: 0.4;
+}
+
+.card-inner-info {
+    font-size: 12px;
+    padding: 5px 15px 15px 15px;
+}
+
+.card-inner-info h2 {
+    margin-top: 0;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.rating {
+    background-color: green;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.rating i {
+    scale: 0.8;
+    margin-left: -5px;
+}
+
+.rating.poor-rating {
+    background-color: red;
+}
+
+.rating.good-rating {
+    background-color: orange;
+}
+
+.food-image {
+    width: 279px;
+    height: 200px;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.seach-container {
+    margin-inline: auto;
+    margin: 30px auto;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+    padding: 8px 20px;
+    display: flex;
+    box-shadow: 0 2px 8px -1px #00000080;
+}
+
+#search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+#search-input::placeholder,
+.seach-container i {
+    color: #998080;
+    font-size: 13px;
+}
