@@ -30,3 +30,28 @@ hr {
 .location span {
     color: red;
 }
+
+.upper-container {
+    display: flex;
+    max-width: 80%;
+    position: relative;
+    left: 10%;
+    align-items: center;
+    gap: 100px;
+}
+
+.filter-Btn {
+    cursor: pointer;
+    margin-inline: auto;
+    border-radius: 8px;
+    width: 50%;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    background-color: tomato;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0 2px 8px -1px #00000080;
+}
+

@@ -6,7 +6,7 @@ const RestrorentCard = (props) => {
     props?.restaurantData?.info;
   return (
     <div className="restrorent-card">
-      <div className="badge">{sla.lastMileTravelString}</div>
+      <div className="badge">{sla?.lastMileTravelString}</div>
       <img
         className="food-image"
         src={CDN_URL + cloudinaryImageId}
@@ -28,7 +28,7 @@ const RestrorentCard = (props) => {
             <i className="fa-solid fa-star"></i> {avgRating}
           </p>
           <i className="fa-solid fa-circle"></i>
-          <p>{sla.deliveryTime} MINS</p>
+          <p>{sla?.slaString}</p>
           <i className="fa-solid fa-circle"></i>
           <p>{costForTwo}</p>
         </div>
