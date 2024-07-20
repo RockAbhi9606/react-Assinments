@@ -1,0 +1,11 @@
+useEffect:-----
+
+if no dependency array => useEffect is called on every render.
+if dependency Array is empty = [] => useEffect is called on initial render only(just once)
+if no dependency Array is[btnName] => useEffect is called on btnName is updated.
+
+useState:---------------
+
+hooks always use inside a function or a hook function on higher level(on top)
+never use useState inside if else condition.I create inconsistentcy in our program.
+never use useState inside for loop.

@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom";
 import "../css/searchComponent.css";
 
 const SearchComponent = ({searchInput, setSearchInput }) => {

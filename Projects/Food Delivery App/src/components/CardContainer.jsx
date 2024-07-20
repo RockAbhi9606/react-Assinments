@@ -1,27 +1,34 @@
 import { useState, useEffect } from "react";
-import RestrorentCard from "./RestrorentCard";
+import RestaurantCard from "./RestaurantCard";
 import SearchComponent from "./SearchComponent";
 import "../css/cardContainer.css";
 import "../css/shimmerCard.css";
 import ShimmerCards from "../shimmer/ShimmerCards";
+import { Link, NavLink, useOutletContext } from "react-router-dom";
 
-const CardContainer = ({ searchInput, setSearchInput }) => {
+const CardContainer = () => {
+  const { searchInput, setSearchInput } = useOutletContext();
   const [filteredData, setFilteredData] = useState("");
+  const [originalData, setOriginalData] = useState("");
   const [isPreset, setIsPresent] = useState(true);
 
   useEffect(() => {
+    filterData();
+  }, []);
+
+  useEffect(() => {
     if (searchInput) {
-      const filter = filteredData.filter((restaurant) =>
+      const filter = originalData.filter((restaurant) =>
         restaurant.info.name.toLowerCase().includes(searchInput.toLowerCase())
       );
 
       filter.length === 0 ? setIsPresent(false) : setIsPresent(true);
       setFilteredData(filter);
     } else {
-      filterData();
+      setFilteredData(originalData);
       setIsPresent(true);
     }
-  }, []);
+  }, [searchInput]);
 
   const filterData = async () => {
     const data = await fetch(
@@ -29,10 +36,12 @@ const CardContainer = ({ searchInput, setSearchInput }) => {
     );
 
     const json = await data.json();
+    const restaurants =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
 
-    setFilteredData(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    setFilteredData(restaurants);
+    setOriginalData(restaurants);
   };
 
   return (
@@ -45,7 +54,8 @@ const CardContainer = ({ searchInput, setSearchInput }) => {
         <button
           className="filter-Btn"
           onClick={() => {
-            const filterData = filteredData.filter(
+            debugger
+            const filterData = originalData.filter(
               (restaurant) => restaurant.info.avgRating >= 4.5
             );
             setFilteredData(filterData);
@@ -60,21 +70,21 @@ const CardContainer = ({ searchInput, setSearchInput }) => {
           <i className="fa-solid fa-city"></i>
         </span>
       </div>
-      <hr />
+      <hr className="card-container-horizontal-lines" />
       <div className="card-container">
         {isPreset === false ? (
           <h1>Restaurant Not Found</h1>
         ) : filteredData.length === 0 ? (
           <ShimmerCards />
         ) : (
-          filteredData.map((restaurant) => {
-            return (
-              <RestrorentCard
-                key={restaurant?.info?.id}
-                restaurantData={restaurant}
-              />
-            );
-          })
+          filteredData.map((restaurant) => (
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurant/" + restaurant.info.id}
+            >
+              <RestaurantCard restaurantData={restaurant} />
+            </Link>
+          ))
         )}
       </div>
     </div>
