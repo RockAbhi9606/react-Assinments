@@ -1,0 +1,127 @@
+1. Various Ways to Add Images into Our App
+There are several ways to add images to a React app:
+
+a. Importing Image
+import React from 'react';
+import logo from './logo.png';
+
+const App = () => {
+  return <img src={logo} alt="Logo" />;
+};
+
+export default App;
+===========================================
+b. Using Public Folder
+Place the image in the public folder and access it directly:
+
+import React from 'react';
+
+const App = () => {
+  return <img src="/logo.png" alt="Logo" />;
+};
+
+export default App;
+=============================================
+c. Using URL
+import React from 'react';
+
+const App = () => {
+  return <img src="https://example.com/logo.png" alt="Logo" />;
+};
+
+export default App;
+================================================================
+
+2. What Would Happen if We Do console.log(useState())?
+If you call console.log(useState()) directly inside a functional component, it will throw an error because useState (and other hooks) must be called within the body of a functional component. This error will look something like:
+
+--Invalid hook call. Hooks can only be called inside of the body of a function component.
+
+However, if you log the result of useState correctly inside a component, it would log an array with two elements: the current state value and the state updater function:
+
+--import React, { useState } from 'react';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  console.log([count, setCount]);
+  return <div>{count}</div>;
+};
+
+export default App;
+
+This would log something like:
+
+[0, ƒ()]
+
+
+3. How Will useEffect Behave if We Don't Add a Dependency Array?
+If you don't add a dependency array to useEffect, it will run after every render. This can lead to performance issues or infinite loops if the effect updates the state causing a re-render.
+
+Example:
+
+import React, { useEffect, useState } from 'react';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('Effect runs after every render');
+  });
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <p>{count}</p>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+4. What is SPA?
+SPA stands for Single Page Application. It's a web application that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from the server. This provides a more fluid and responsive user experience.
+
+In an SPA, the entire application loads once and subsequent interactions happen through AJAX requests and updates to the DOM.
+
+5. Difference Between Client-Side Routing and Server-Side Routing
+Client-Side Routing
+Definition: The routing logic is handled in the browser using JavaScript.
+How it Works: When a user navigates, the URL changes but the page does not reload. The JavaScript router intercepts the navigation events and updates the view accordingly.
+Example: React Router.
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/about" component={About} />
+    </Switch>
+  </Router>
+);
+Server-Side Routing
+Definition: The routing logic is handled on the server.
+How it Works: When a user navigates, a request is made to the server, which processes the route and sends back the appropriate HTML page.
+Example: Traditional web applications using frameworks like Express.js.
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Home Page');
+});
+
+app.get('/about', (req, res) => {
+  res.send('About Page');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+Summary:
+
+Client-Side Routing offers a smoother user experience by avoiding full page reloads, but requires JavaScript to be enabled.
+Server-Side Routing sends full HTML pages from the server for each request, which can be simpler but results in slower navigation as the whole page reloads.
+These explanations and examples should help clarify each concept and how they work in practice!

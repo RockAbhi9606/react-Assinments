@@ -4,17 +4,25 @@ import SearchComponent from "./SearchComponent";
 import "../css/cardContainer.css";
 import "../css/shimmerCard.css";
 import ShimmerCards from "../shimmer/ShimmerCards";
-import { Link, NavLink, useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
+import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
+import useFetchRestaurents from "../utils/useFetchRestaurents";
 
 const CardContainer = () => {
   const { searchInput, setSearchInput } = useOutletContext();
   const [filteredData, setFilteredData] = useState("");
   const [originalData, setOriginalData] = useState("");
   const [isPreset, setIsPresent] = useState(true);
+  const onlineStatus = useOnlineOfflineStatus();
+
+  const resListData = useFetchRestaurents();
 
   useEffect(() => {
-    filterData();
-  }, []);
+    //if (resListData.length > 0) {
+      setFilteredData(resListData);
+      setOriginalData(resListData);
+    //}
+  }, [resListData]);
 
   useEffect(() => {
     if (searchInput) {
@@ -30,19 +38,9 @@ const CardContainer = () => {
     }
   }, [searchInput]);
 
-  const filterData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await data.json();
-    const restaurants =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || [];
-
-    setFilteredData(restaurants);
-    setOriginalData(restaurants);
-  };
+  if (onlineStatus === false) {
+    return <h1>You'r offline,Please Check your Internet Connection!</h1>;
+  }
 
   return (
     <div className="main-container">
@@ -54,7 +52,7 @@ const CardContainer = () => {
         <button
           className="filter-Btn"
           onClick={() => {
-            debugger
+            debugger;
             const filterData = originalData.filter(
               (restaurant) => restaurant.info.avgRating >= 4.5
             );

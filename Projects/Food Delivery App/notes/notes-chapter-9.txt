@@ -1,0 +1,15 @@
+Single Responsibility principal:-
+
+  -- code was reusable.(reusable)
+  -- code was easy to maintain.(maintainable)
+  -- code was easy to test.(textable)
+
+
+lazy loading names:-
+
+  --lazy loading
+  --chuking
+  --code splitting
+  --Dynamic Bundling
+  --on Demand Loading
+  --Dynamic import

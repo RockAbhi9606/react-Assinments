@@ -1,8 +1,6 @@
 1)Difference between Named Export, Default Export, and * as Export
   --Named Export: You can export multiple named variables or functions from a module. When importing, you need to use the exact name of the export.
 
-javascript
-Copy code
 // module.js
 export const myVar = 42;
 export function myFunc() { ... }
@@ -12,8 +10,6 @@ import { myVar, myFunc } from './module';
 
   --Default Export: You can export a single default export from a module. When importing, you can give it any name.
 
-javascript
-Copy code
 // module.js
 export default function myDefaultFunc() { ... }
 
@@ -22,8 +18,6 @@ import anyName from './module';
 
   --* as Export: You can import all named exports from a module as a single object.
 
-javascript
-Copy code
 // module.js
 export const myVar = 42;
 export function myFunc() { ... }
@@ -43,8 +37,7 @@ React Hooks are functions that let you use state and other React features withou
 4)Why Do We Need a useState Hook?
 The useState Hook allows you to add state management to functional components. It enables you to create state variables and update their values within functional components, making it possible to handle dynamic data and user interactions without needing to convert your component into a class.
 
-javascript
-Copy code
+
 import React, { useState } from 'react';
 
 function Counter() {

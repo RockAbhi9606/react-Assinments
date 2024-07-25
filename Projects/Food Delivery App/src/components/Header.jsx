@@ -2,8 +2,10 @@ import { useState } from "react";
 import "../css/header.css";
 import { LOGO_PATH } from "../utils/constant";
 import { Link } from "react-router-dom";
+import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
 
 const Header = () => {
+  const onlineStatus = useOnlineOfflineStatus();
   const [isLogin, setIsLogin] = useState("Login");
   return (
     <div className="header">
@@ -21,6 +23,10 @@ const Header = () => {
         </div>
       </div>
       <div className="right-side">
+        <div>
+          OnlineStatus:&nbsp;
+          {onlineStatus ? "✅" : "🔴"}
+        </div>
         <Link to="/">
           <i className="fa-solid fa-house"></i>&nbsp;&nbsp;Home
         </Link>
@@ -32,6 +38,10 @@ const Header = () => {
         </Link>
         <Link to="/cart">
           <i className="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Cart
+        </Link>
+        <Link to="/grocery">
+          <i className="fa-duotone fa-solid fa-basket-shopping"></i>
+          &nbsp;&nbsp;Grocery
         </Link>
         <Link
           href="/"
