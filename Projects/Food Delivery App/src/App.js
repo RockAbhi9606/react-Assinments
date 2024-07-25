@@ -9,12 +9,12 @@ import Cart from './components/Cart';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 
-//Normal import syntax
+//Normal import syntax.
 //import Grocery from './components/Grocery';
 //import About from './components/About';
 
 
-//lazy loading import syntax
+//lazy loading import syntax.
 const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))
 
