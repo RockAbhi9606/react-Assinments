@@ -177,7 +177,6 @@
   width: 165px;
   height: 145px;
 }
-
 .inner-expand-main-menu-image {
   display: flex;
   flex-direction: column;
@@ -217,37 +216,4 @@
 .expand-main-menu-price {
   margin-top: 5px;
   font-weight: bold;
-}
-
-.expand-veg-nonveg-image i{
-  scale: 0.7;
-}
-
-.expand-veg-nonveg-image{
-  width: 20px;
-
-}
-
-.expand-veg-nonveg-image .non-veg {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  padding-top: -12px;
-  text-align: center;
-  border-radius: 3px;
-  border: 2px solid red;
-  align-items: center;
-  justify-content: center;
-}
-
-.expand-veg-nonveg-image .veg {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  padding-top: -12px;
-  text-align: center;
-  border-radius: 3px;
-  border: 2px solid green;
-  align-items: center;
-  justify-content: center;
 }

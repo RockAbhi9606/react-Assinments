@@ -1,0 +1,94 @@
+import { useState, useEffect } from "react";
+import RestaurantCard from "./RestaurantCard";
+import SearchComponent from "./SearchComponent";
+import "../css/cardContainer.css";
+import "../css/shimmerCard.css";
+import ShimmerCards from "../shimmer/ShimmerCards";
+import { Link, NavLink, useOutletContext } from "react-router-dom";
+
+const CardContainer = () => {
+  const { searchInput, setSearchInput } = useOutletContext();
+  const [filteredData, setFilteredData] = useState("");
+  const [originalData, setOriginalData] = useState("");
+  const [isPreset, setIsPresent] = useState(true);
+
+  useEffect(() => {
+    filterData();
+  }, []);
+
+  useEffect(() => {
+    if (searchInput) {
+      const filter = originalData.filter((restaurant) =>
+        restaurant.info.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+
+      filter.length === 0 ? setIsPresent(false) : setIsPresent(true);
+      setFilteredData(filter);
+    } else {
+      setFilteredData(originalData);
+      setIsPresent(true);
+    }
+  }, [searchInput]);
+
+  const filterData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    const restaurants =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+
+    setFilteredData(restaurants);
+    setOriginalData(restaurants);
+  };
+
+  return (
+    <div className="main-container">
+      <div className="upper-container">
+        <SearchComponent
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
+        <button
+          className="filter-Btn"
+          onClick={() => {
+            debugger
+            const filterData = originalData.filter(
+              (restaurant) => restaurant.info.avgRating >= 4.5
+            );
+            setFilteredData(filterData);
+          }}
+        >
+          Top rated Restaurants
+        </button>
+      </div>
+      <div className="location">
+        Top Restaurants in <span>Pune</span>&nbsp;
+        <span>
+          <i className="fa-solid fa-city"></i>
+        </span>
+      </div>
+      <hr className="card-container-horizontal-lines" />
+      <div className="card-container">
+        {isPreset === false ? (
+          <h1>Restaurant Not Found</h1>
+        ) : filteredData.length === 0 ? (
+          <ShimmerCards />
+        ) : (
+          filteredData.map((restaurant) => (
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurant/" + restaurant.info.id}
+            >
+              <RestaurantCard restaurantData={restaurant} />
+            </Link>
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default CardContainer;

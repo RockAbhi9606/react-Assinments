@@ -1,0 +1,26 @@
+.seach-container {
+    margin-inline: auto;
+    margin: 30px auto;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 8px 20px;
+    display: flex;
+    box-shadow: 0 2px 8px -1px #00000080;
+}
+
+#search-input::placeholder,
+.seach-container i {
+    color: #998080;
+    font-size: 13px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    border-radius: 8px;
+}

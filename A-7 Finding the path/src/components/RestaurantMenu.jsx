@@ -137,19 +137,17 @@ const RestaurantMenu = () => {
                     <div className="expand-main-container" key={id}>
                       <div className="inner-expand-main">
                         <div className="inner-expand-main-menu">
-                          <div className="expand-veg-nonveg-image">
-                            {itemAttribute.vegClassifier === "VEG" ? (
-                              <i
-                                className="veg fa-solid fa-circle"
-                                style={{ color: "green" }}
-                              ></i>
-                            ) : (
-                              <i
-                                className="non-veg fa-solid fa-circle"
-                                style={{ color: "red" }}
-                              ></i>
-                            )}
-                          </div>
+                          {itemAttribute.vegClassifier === "VEG" ? (
+                            <i
+                              className="fa-solid fa-circle"
+                              style={{ color: "green" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fa-solid fa-circle"
+                              style={{ color: "red" }}
+                            ></i>
+                          )}
                           <div className="expand-main-menu-title">{name}</div>
                           <div className="expand-main-menu-price">
                             ₹{price / 100 || defaultPrice / 100}
