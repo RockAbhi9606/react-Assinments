@@ -50,7 +50,7 @@
     gap: 40px;
 }
 
-.right-side a {
+.right-side a,.left-side a {
     cursor: pointer;
     font-size: 16px;
     text-decoration: none;

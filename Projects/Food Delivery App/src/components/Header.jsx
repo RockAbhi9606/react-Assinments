@@ -13,7 +13,9 @@ const Header = () => {
         <Link to="/">
           <img className="logo" src={LOGO_PATH} alt="logo" />
         </Link>
-        <span className="title">QuickBite</span>
+        <Link to="/">
+          <span className="title">QuickBite</span>
+        </Link>
         <div role="button" className="select-city-container">
           <span className="select-city">Other</span>
           <span>pune, Maharashtra, India</span>
