@@ -1,0 +1,10 @@
+various ways to apply css into our project.
+  --Normal Css
+  --SCSS and SASS
+  --matarial ui
+  --chakra ui
+  --styled components
+  --ant design
+  --bootstrap 
+  --tailwind css
+  

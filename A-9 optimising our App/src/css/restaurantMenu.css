@@ -1,0 +1,253 @@
+.menu-container {
+  max-width: 800px;
+  min-height: 800px;
+  padding: 0 25px;
+  margin: 50px auto 0;
+}
+
+.restaurant-info-container {
+  background: linear-gradient(rgb(255, 255, 255) -6.71%, rgb(235, 235, 242) 56.19%, rgb(223, 223, 231) 106.56%);
+  padding: 0px 16px 16px;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+}
+
+.restaurent-info {
+  padding: 0 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(2, 6, 12, 0.15);
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 8px 16px 0px;
+}
+
+.rating-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.rating-container .dot {
+  scale: 0.5;
+}
+
+.travel-distance p {
+  margin-top: 0;
+}
+
+.expand-default-image {
+  height: 100px;
+}
+
+.cuisins-container p {
+  margin-top: -15px;
+  font-size: 15px;
+  color: rgb(231, 83, 37);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.kFRNmn {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  margin-top: 7px;
+  align-items: center;
+}
+
+.cCGtSc {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(196, 196, 196);
+}
+
+.jvmEWX {
+  width: 1px;
+  height: 37px;
+  background: rgb(196, 196, 196);
+}
+
+.cCGtSc {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(196, 196, 196);
+}
+
+.outer-container {
+  display: flex;
+  gap: 12px;
+}
+
+.travel-distance p {
+  font-weight: 600;
+}
+
+.travel-distance p span {
+  font-weight: 300;
+}
+
+.menu-hr {
+  margin-inline: 0px;
+  background-color: red;
+  margin-bottom: 40px;
+  position: relative;
+  top: -10px;
+  width: 100%;
+}
+
+.total-distance {
+  display: flex;
+  margin-top: -55px;
+  align-items: center;
+  gap: 20px;
+}
+
+.total-distance span {
+  margin-left: -15px;
+}
+
+.total-distance i {
+  scale: 1.5;
+  margin-left: 12px;
+}
+
+.total-distance p {
+  font-weight: 600;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  color: darkred;
+}
+
+.recomanded-btn {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: justify;
+  border: none;
+  background-color: transparent;
+  justify-content: space-between;
+  padding-right: 16px;
+  height: 45px;
+  font-size: 1.15rem;
+}
+
+.recomanded-btn i {
+  cursor: pointer;
+}
+
+.lower {
+  width: 100%;
+  background-color: rgb(240, 233, 233);
+  border: 1px solid;
+  height: 10px;
+  border: none;
+}
+
+.upper {
+  width: 100%;
+  background-color: rgb(240, 233, 233);
+  border: 1px solid rgb(231, 225, 225);
+  height: 2px;
+}
+
+.inner-expand-main {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expand-menu-title {
+  margin-top: 50px;
+  font-size: 35px;
+  font-family: ui-rounded;
+  text-align: center;
+}
+
+.expand-main-menu-title {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.inner-expand-main-menu-image img {
+  border-radius: 15px;
+  width: 165px;
+  height: 145px;
+}
+
+.inner-expand-main-menu-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.expand-add-btn {
+  color: green;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 8px -1px #00000080;
+  border-radius: 5px;
+  padding: 10px 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.expand-main-menu-ratings {
+  margin-top: 5px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.expand-main-menu-ratings span {
+  font-weight: 700;
+}
+
+.expand-main-menu-discription {
+  font-size: 14px;
+  width: 90%;
+  margin-top: 15px;
+}
+.expand-main-menu-price {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.expand-veg-nonveg-image i{
+  scale: 0.7;
+}
+
+.expand-veg-nonveg-image{
+  width: 20px;
+
+}
+
+.expand-veg-nonveg-image .non-veg {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding-top: -12px;
+  text-align: center;
+  border-radius: 3px;
+  border: 2px solid red;
+  align-items: center;
+  justify-content: center;
+}
+
+.expand-veg-nonveg-image .veg {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding-top: -12px;
+  text-align: center;
+  border-radius: 3px;
+  border: 2px solid green;
+  align-items: center;
+  justify-content: center;
+}
