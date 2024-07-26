@@ -1,58 +1,73 @@
 import { useState } from "react";
-import "../css/header.css";
 import { LOGO_PATH } from "../utils/constant";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
 
 const Header = () => {
   const onlineStatus = useOnlineOfflineStatus();
   const [isLogin, setIsLogin] = useState("Login");
   return (
-    <div className="header">
-      <div className="left-side">
-        <Link to="/">
-          <img className="logo" src={LOGO_PATH} alt="logo" />
-        </Link>
-        <Link to="/">
-          <span className="title">QuickBite</span>
-        </Link>
-        <div role="button" className="select-city-container">
-          <span className="select-city">Other</span>
-          <span>pune, Maharashtra, India</span>
+    <div className="flex justify-between items-center px-8 py-3 shadow-lg">
+      <div className="flex items-center gap-8">
+        <div className="flex items-center gap-1">
+          <Link className="flex items-center gap-2" to="/">
+            <img className="w-12" src={LOGO_PATH} alt="logo" />
+            <span className="text-xl font-medium">QuickBite</span>
+          </Link>
+        </div>
+        <div role="button" className="flex gap-2">
+          <span className="underline text-blue-600">Other</span>
+          <span className="font-medium">pune, Maharashtra, India</span>
           <span>
             <i className="fa-solid fa-angle-down"></i>
           </span>
         </div>
       </div>
-      <div className="right-side">
-        <div>
+      <div className="flex gap-5">
+        <span>
           OnlineStatus:&nbsp;
           {onlineStatus ? "✅" : "🔴"}
-        </div>
-        <Link to="/">
+        </span>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
+        >
           <i className="fa-solid fa-house"></i>&nbsp;&nbsp;Home
-        </Link>
-        <Link to="/about">
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
+        >
           <i className="fa-solid fa-address-card"></i>&nbsp;&nbsp;About Us
-        </Link>
-        <Link to="/contact">
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
+        >
           <i className="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact Us
-        </Link>
-        <Link to="/cart">
+        </NavLink>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
+        >
           <i className="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Cart
-        </Link>
-        <Link to="/grocery">
+        </NavLink>
+        <NavLink
+          to="/grocery"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
+        >
           <i className="fa-duotone fa-solid fa-basket-shopping"></i>
           &nbsp;&nbsp;Grocery
-        </Link>
-        <Link
-          href="/"
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) => (isActive ? "text-blue-500 " : "")}
           onClick={() => {
             isLogin === "Login" ? setIsLogin("Logout") : setIsLogin("Login");
           }}
         >
           <i className="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;{isLogin}
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

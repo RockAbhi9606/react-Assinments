@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../css/restrorentCard.css";
 import { CDN_URL } from "../utils/constant";
 
 const RestaurantCard = (props) => {
@@ -22,39 +21,41 @@ const RestaurantCard = (props) => {
   const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
     props?.restaurantData?.info;
   return (
-    <div className="restrorent-card">
+    <div className="card hover:shadow-custom hover:translate-y-[-5px] duration-300 ease-in-out max-w-72 h-[340px] rounded-xl relative">
       <div className="badge">{sla?.lastMileTravelString}</div>
       {imageExists ? (
         <img
-          className="food-image"
+          className="w-full p-2 h-48 rounded-xl"
           src={CDN_URL + cloudinaryImageId}
           alt="food-images"
         />
       ) : (
         <img
-          className="food-image"
+          className="w-full p-2 h-52 rounded-xl"
           src="https://i.pinimg.com/736x/55/f8/af/55f8afd0d4c2224653f1ba467b6543e8.jpg"
           alt="food-images1"
         />
       )}
-      <div className="card-inner-info">
-        <h2>{name}</h2>
-        <p>{cuisines.join(", ")}</p>
-        <div className="rating-distance-avgBill">
-          <p
-            className={`rating ${
+      <div className="px-3">
+        <h2 className="text-lg mb-2 font-semibold">{name}</h2>
+        <p className="text-[12px] mt-1">{cuisines.join(", ")}</p>
+        <div className="mt-5 text-[14px] flex items-center justify-evenly">
+          <div
+            className={`flex items-center outline-none rounded-sm px-1 text-white rating ${
               avgRating >= 4
-                ? ""
+                ? "bg-green-700"
                 : avgRating >= 3
-                ? "good-rating"
-                : "poor-rating"
+                ? "bg-orange-500"
+                : "bg-red-700"
             }`}
           >
-            <i className="fa-solid fa-star"></i> {avgRating}
-          </p>
-          <i className="fa-solid fa-circle"></i>
+            <div className="pr-1 py-[2px]">
+              <i className="scale-75 fa-solid fa-star"></i> {avgRating}
+            </div>
+          </div>
+          <i className="scale-[0.35] fa-solid fa-circle"></i>
           <p>{sla?.slaString}</p>
-          <i className="fa-solid fa-circle"></i>
+          <i className="scale-[0.35] fa-solid fa-circle"></i>
           <p>{costForTwo}</p>
         </div>
       </div>

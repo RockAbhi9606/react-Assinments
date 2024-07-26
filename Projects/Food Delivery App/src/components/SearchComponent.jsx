@@ -1,14 +1,11 @@
-import { useOutletContext } from "react-router-dom";
-import "../css/searchComponent.css";
-
-const SearchComponent = ({searchInput, setSearchInput }) => {
+const SearchComponent = ({ searchInput, setSearchInput }) => {
   return (
-    <div className="seach-container">
-      <i className="fa-solid fa-magnifying-glass"></i>
+    <div className="w-6/12 p-2 rounded-md flex items-center pl-3 shadow-custom">
+      <i className="text-gray-400 fa-solid fa-magnifying-glass"></i>
       <input
+        className="mx-3 w-full outline-none"
         type="text"
         name="search"
-        id="search-input"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search for restaurants and food"

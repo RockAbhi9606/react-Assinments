@@ -1,16 +1,15 @@
 const ShimmerCards = () => {
-    return (
-        <div className="shimmer-card-container">
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-        </div>
-    )
+  return (
+    <>
+      {
+        Array.from({ length: 20 }).map((el, i) => {
+          return (
+            <div key={i} className="shimmer-card max-w-[280px] h-[340px] bg-gray-300 rounded-md animate-blink-animation"></div>
+          )
+        })
+      }
+    </>
+  )
 }
 
 export default ShimmerCards

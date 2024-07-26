@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import SearchComponent from "./SearchComponent";
-import "../css/cardContainer.css";
-import "../css/shimmerCard.css";
 import ShimmerCards from "../shimmer/ShimmerCards";
 import { Link, useOutletContext } from "react-router-dom";
 import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
@@ -19,8 +17,8 @@ const CardContainer = () => {
 
   useEffect(() => {
     //if (resListData.length > 0) {
-      setFilteredData(resListData);
-      setOriginalData(resListData);
+    setFilteredData(resListData);
+    setOriginalData(resListData);
     //}
   }, [resListData]);
 
@@ -43,14 +41,14 @@ const CardContainer = () => {
   }
 
   return (
-    <div className="main-container">
-      <div className="upper-container">
+    <div className="mx-auto relative">
+      <div className="flex my-12 w-4/5 justify-center mx-auto gap-10">
         <SearchComponent
           searchInput={searchInput}
           setSearchInput={setSearchInput}
         />
         <button
-          className="filter-Btn"
+          className="w-6/12 bg-red-400 text-white rounded-md"
           onClick={() => {
             debugger;
             const filterData = originalData.filter(
@@ -62,16 +60,16 @@ const CardContainer = () => {
           Top rated Restaurants
         </button>
       </div>
-      <div className="location">
-        Top Restaurants in <span>Pune</span>&nbsp;
+      <div className="absolute text-3xl left-36 text-red-600">
+        Top Restaurants in <span className="text-red-900">Pune</span>&nbsp;
         <span>
           <i className="fa-solid fa-city"></i>
         </span>
       </div>
-      <hr className="card-container-horizontal-lines" />
-      <div className="card-container">
+      <hr className="relative top-12 border-1 border-red-200 border-solid mx-36 mb-6" />
+      <div className="grid gap-12 justify-center grid-cols-auto-fit-250 px-32 py-16">
         {isPreset === false ? (
-          <h1>Restaurant Not Found</h1>
+          <h1 className="text-5xl text-center py-12">Restaurant Not Found</h1>
         ) : filteredData.length === 0 ? (
           <ShimmerCards />
         ) : (

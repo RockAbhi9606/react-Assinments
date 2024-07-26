@@ -1,13 +1,28 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* * {
+* {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-} */
+}
+
+.badge {
+    @apply absolute border px-5 top-[-12px] left-[-10px] bg-red-500 text-white rounded-t-3xl rounded-r-none rounded-tr-md rounded-br-md border-none outline-none;
+    display: none;
+}
+.card:hover .badge {
+    display: block;
+}
+
+.ellipsis-multi-line {
+    @apply overflow-hidden w-9/12;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
