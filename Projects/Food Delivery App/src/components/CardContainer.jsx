@@ -62,17 +62,17 @@ const CardContainer = () => {
           Top rated Restaurants
         </button>
       </div>
-      <div>
+      {/* <div>
         <label>Input</label>
-        {/* <input
+         <input
           className="border-2 px-2"
           type="text"
           value={loggedInUser}
           onChange={(e) => {
             setUserName(e.target.value);
           }}
-        /> */}
-      </div>
+        />
+      </div> */}
       <div className="absolute text-3xl left-36 text-red-600">
         Top Restaurants in <span className="text-red-900">Pune</span>&nbsp;
         <span>
