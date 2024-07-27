@@ -1,0 +1,5 @@
+-- Higher order components
+  Higher order components is a function that takes a component and returns a component.
+
+--controlled components and uncomcontrolled components
+  

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client'
 import '../index.css'
 import Header from './components/Header';
@@ -8,6 +8,7 @@ import Contact from './components/ContactUs';
 import Cart from './components/Cart';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
+import UserContext from './utils/useContext';
 
 //Normal import syntax.
 //import Grocery from './components/Grocery';
@@ -19,12 +20,22 @@ const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const data = {
+      name: 'Abhishek Bande'
+    }
+    setUserName(data.name)
+  }, [])
   const [searchInput, setSearchInput] = useState("");
   return (
-    <div className="App">
-      <Header />
-      <Outlet context={{ searchInput, setSearchInput }} />
-    </div>
+    <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
+      <div className="App">
+        <Header />
+        <Outlet context={{ searchInput, setSearchInput }} />
+      </div>
+    </UserContext.Provider>
   )
 }
 

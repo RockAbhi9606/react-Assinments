@@ -17,9 +17,9 @@ const RestaurantCard = (props) => {
   };
 
   const [imageExists, setImageExists] = useState(true);
-
   const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
     props?.restaurantData?.info;
+
   return (
     <div className="card hover:shadow-custom hover:translate-y-[-5px] duration-300 ease-in-out max-w-72 h-[340px] rounded-xl relative">
       <div className="badge">{sla?.lastMileTravelString}</div>
@@ -53,14 +53,30 @@ const RestaurantCard = (props) => {
               <i className="scale-75 fa-solid fa-star"></i> {avgRating}
             </div>
           </div>
-          <i className="scale-[0.35] fa-solid fa-circle"></i>
+          <i className="scale-[0.25] fa-solid fa-circle"></i>
           <p>{sla?.slaString}</p>
-          <i className="scale-[0.35] fa-solid fa-circle"></i>
+          <i className="scale-[0.25] fa-solid fa-circle"></i>
           <p>{costForTwo}</p>
         </div>
       </div>
     </div>
   );
+};
+
+export const withDiscountedLabel = (RestaurantCard) => {
+  return (props) => {
+    const { aggregatedDiscountInfoV3 } = props?.restaurantData?.info;
+    const header = aggregatedDiscountInfoV3?.header || "";
+    const subHeader = aggregatedDiscountInfoV3?.subHeader || "";
+    return (
+      <>
+        <div className="relative z-10 top-44 left-3 text-xl text-white font-extrabold bg-discount-gradient w-[260px] px-2">
+          {header + " " + subHeader}
+        </div>
+        <RestaurantCard {...props} />
+      </>
+    );
+  };
 };
 
 export default RestaurantCard;

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_PATH } from "../utils/constant";
 import { Link, NavLink } from "react-router-dom";
 import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
+import UserContext from "../utils/useContext";
 
 const Header = () => {
   const onlineStatus = useOnlineOfflineStatus();
+  const { loggedInUser } = useContext(UserContext);
   const [isLogin, setIsLogin] = useState("Login");
   return (
     <div className="flex justify-between items-center px-8 py-3 shadow-lg">
@@ -68,6 +70,7 @@ const Header = () => {
         >
           <i className="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;{isLogin}
         </NavLink>
+        <span>{loggedInUser}</span>
       </div>
     </div>
   );

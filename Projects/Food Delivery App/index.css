@@ -20,9 +20,13 @@ body {
 }
 
 .ellipsis-multi-line {
-    @apply overflow-hidden w-9/12;
+    @apply overflow-hidden w-4/5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+}
+
+.expand.ellipsis-multi-line {
+    display: contents;
 }

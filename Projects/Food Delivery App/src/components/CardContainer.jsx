@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
+import RestaurantCard, { withDiscountedLabel } from "./RestaurantCard";
 import SearchComponent from "./SearchComponent";
 import ShimmerCards from "../shimmer/ShimmerCards";
 import { Link, useOutletContext } from "react-router-dom";
 import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
 import useFetchRestaurents from "../utils/useFetchRestaurents";
+import UserContext from "../utils/useContext";
 
 const CardContainer = () => {
   const { searchInput, setSearchInput } = useOutletContext();
@@ -12,8 +13,8 @@ const CardContainer = () => {
   const [originalData, setOriginalData] = useState("");
   const [isPreset, setIsPresent] = useState(true);
   const onlineStatus = useOnlineOfflineStatus();
-
   const resListData = useFetchRestaurents();
+  const DiscountLabelRestaurent = withDiscountedLabel(RestaurantCard);
 
   useEffect(() => {
     //if (resListData.length > 0) {
@@ -40,6 +41,8 @@ const CardContainer = () => {
     return <h1>You'r offline,Please Check your Internet Connection!</h1>;
   }
 
+  //const { loggedInUser, setUserName } = useContext(UserContext);
+
   return (
     <div className="mx-auto relative">
       <div className="flex my-12 w-4/5 justify-center mx-auto gap-10">
@@ -50,7 +53,6 @@ const CardContainer = () => {
         <button
           className="w-6/12 bg-red-400 text-white rounded-md"
           onClick={() => {
-            debugger;
             const filterData = originalData.filter(
               (restaurant) => restaurant.info.avgRating >= 4.5
             );
@@ -59,6 +61,17 @@ const CardContainer = () => {
         >
           Top rated Restaurants
         </button>
+      </div>
+      <div>
+        <label>Input</label>
+        {/* <input
+          className="border-2 px-2"
+          type="text"
+          value={loggedInUser}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        /> */}
       </div>
       <div className="absolute text-3xl left-36 text-red-600">
         Top Restaurants in <span className="text-red-900">Pune</span>&nbsp;
@@ -78,7 +91,14 @@ const CardContainer = () => {
               key={restaurant?.info?.id}
               to={"/restaurant/" + restaurant.info.id}
             >
-              <RestaurantCard restaurantData={restaurant} />
+              {restaurant.info.aggregatedDiscountInfoV3 === undefined ? (
+                <>
+                  <div className="mt-7"></div>
+                  <RestaurantCard restaurantData={restaurant} />
+                </>
+              ) : (
+                <DiscountLabelRestaurent restaurantData={restaurant} />
+              )}
             </Link>
           ))
         )}
