@@ -5,7 +5,6 @@ import ShimmerCards from "../shimmer/ShimmerCards";
 import { Link, useOutletContext } from "react-router-dom";
 import useOnlineOfflineStatus from "../utils/useOnlineOfflineStatus";
 import useFetchRestaurents from "../utils/useFetchRestaurents";
-import UserContext from "../utils/useContext";
 
 const CardContainer = () => {
   const { searchInput, setSearchInput } = useOutletContext();
@@ -15,12 +14,10 @@ const CardContainer = () => {
   const onlineStatus = useOnlineOfflineStatus();
   const resListData = useFetchRestaurents();
   const DiscountLabelRestaurent = withDiscountedLabel(RestaurantCard);
-
+  
   useEffect(() => {
-    //if (resListData.length > 0) {
     setFilteredData(resListData);
     setOriginalData(resListData);
-    //}
   }, [resListData]);
 
   useEffect(() => {

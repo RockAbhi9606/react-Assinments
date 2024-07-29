@@ -11,6 +11,10 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .badge {
     @apply absolute border px-5 top-[-12px] left-[-10px] bg-red-500 text-white rounded-t-3xl rounded-r-none rounded-tr-md rounded-br-md border-none outline-none;
     display: none;
@@ -29,4 +33,9 @@ body {
 
 .expand.ellipsis-multi-line {
     display: contents;
+}
+
+.translate-custom {
+    @apply absolute rounded-full bg-red-500 text-white text-xs px-1.5 py-0.5;
+    transform: translate(-40%, -85%);
 }

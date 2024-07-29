@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CategoryList from "./CategoryList";
 
-const RestaurentCatagories = ({ categories, isExpand, setShowItemIndex,setIsExpand }) => {
+const RestaurentCatagories = ({ categories, isExpand, setShowItemIndex,setIsExpand,restaurantName }) => {
   // const [isExpand, setIsExpand] = useState(true);
   const { title, itemCards } = categories;
   return (
@@ -10,7 +10,6 @@ const RestaurentCatagories = ({ categories, isExpand, setShowItemIndex,setIsExpa
       <div className="p-4">
         <button
           onClick={() => {
-            debugger
             setShowItemIndex();
             setIsExpand(!isExpand);
           }}
@@ -28,7 +27,7 @@ const RestaurentCatagories = ({ categories, isExpand, setShowItemIndex,setIsExpa
       </div>
       {!isExpand && <div className="h-2 bg-gray-200"></div>}
 
-      {isExpand && <CategoryList menuItemList={categories.itemCards} />}
+      {isExpand && <CategoryList restaurantName={restaurantName} menuItemList={categories.itemCards} />}
     </div>
   );
 };

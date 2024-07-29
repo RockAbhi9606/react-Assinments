@@ -9,6 +9,9 @@ import Cart from './components/Cart';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import UserContext from './utils/useContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+
 
 //Normal import syntax.
 //import Grocery from './components/Grocery';
@@ -30,12 +33,14 @@ const AppLayout = () => {
   }, [])
   const [searchInput, setSearchInput] = useState("");
   return (
-    <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
-      <div className="App">
-        <Header />
-        <Outlet context={{ searchInput, setSearchInput }} />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="App">
+          <Header />
+          <Outlet context={{ searchInput, setSearchInput }} />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   )
 }
 

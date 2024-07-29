@@ -1,6 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
 import { MENU_IMAGES_URL } from "../utils/constant";
+import { addItems } from "../utils/cartSlice";
 
 const CategoryList = ({ menuItemList }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const handleAddItem = (item) => {
+    dispatch(addItems(item));
+  };
+
+  const getCartItemCount = (itemId) => {
+    const item = cartItems.find((cartItem) => cartItem.id === itemId);
+    return item;
+  };
+
   return (
     <div>
       {menuItemList &&
@@ -15,6 +29,7 @@ const CategoryList = ({ menuItemList }) => {
             description,
             itemAttribute,
           } = item?.card?.info;
+          const itemCount = getCartItemCount(id);
           return (
             <div key={id}>
               <div className="flex items-center justify-between p-4 pb-12 border-solid border-b-2 border-slate-400">
@@ -37,11 +52,7 @@ const CategoryList = ({ menuItemList }) => {
                     </span>{" "}
                     ({ratings?.aggregatedRating?.ratingCountV2 || 0})
                   </div>
-                  {
-                    <div className="mt-4">
-                      {description}
-                    </div>
-                  }
+                  {<div className="mt-4 mr-4">{description}</div>}
                 </div>
                 <div className="relative">
                   {imageId ? (
@@ -57,9 +68,26 @@ const CategoryList = ({ menuItemList }) => {
                       alt="food-images1"
                     />
                   )}
-                  <button className="bg-green-400 font-medium text-white p-2 w-28 rounded-lg absolute top-[140px] left-6 shadow-sm">
-                    ADD
-                  </button>
+                  <div>
+                    {itemCount === undefined ? (
+                      <button
+                        className="bg-green-400 font-medium text-white p-2 w-28 rounded-lg absolute top-[140px] left-6 shadow-sm"
+                        onClick={() => handleAddItem(item.card.info)}
+                      >
+                        ADD
+                      </button>
+                    ) : (
+                      <div className="flex justify-evenly bg-green-400 font-medium text-white p-2 w-28 rounded-lg absolute top-[140px] left-6 shadow-sm">
+                        <span>
+                          <i className="cursor-pointer fa-solid fa-minus"></i>
+                        </span>
+                        <span className="">{cartItems.length}</span>
+                        <span>
+                          <i className="cursor-pointer fa-solid fa-plus"></i>
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

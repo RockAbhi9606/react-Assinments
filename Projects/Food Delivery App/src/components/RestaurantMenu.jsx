@@ -24,6 +24,8 @@ const RestaurantMenu = () => {
     slugs,
   } = restaurantData?.cards[2]?.card?.card?.info;
 
+  console.log(restaurantData)
+
   const categories =
     restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (category) =>
@@ -43,7 +45,7 @@ const RestaurantMenu = () => {
         <button>Back</button>
       </div>
       <h1 className="text-2xl font-semibold mb-5 text-[#8b0000]">{name}</h1>
-      <div className="px-6 pb-6 bg-custom-gradient rounded-bl-3xl rounded-br-3xl">
+      <div className="pb-6 bg-custom-gradient rounded-bl-3xl rounded-br-3xl">
         <div className="p-4 border-2 border-solid bg-white rounded-[20px] shadow-sm">
           <div className="flex items-center gap-2 mb-1 font-semibold">
             <i className="text-[#21b853] scale-100 fa-solid fa-star"></i>
@@ -79,8 +81,7 @@ const RestaurantMenu = () => {
       <div className="text-center my-6 text-amber-800 text-3xl">
         <p>MENU</p>
       </div>
-      {categories.map((category, index) => {
-        debugger;
+      {categories && categories.map((category, index) => {
         return (
           <RestaurentCatagories
             key={category?.card?.card?.title}
