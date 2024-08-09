@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    overflow: hidden;
+}
+
+.scrollbar-thin {
+    scrollbar-width: thin;
+    /* For Firefox */
+}
+.scrollbar-none {
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.overflow-wrap {
+    overflow-wrap: anywhere;
+}
+
+.sidebar {
+    transition: transform 0.3s ease;
+}

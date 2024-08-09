@@ -11,6 +11,7 @@ import RestaurantMenu from './components/RestaurantMenu';
 import UserContext from './utils/useContext';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore';
+import Login from './components/Login';
 
 
 //Normal import syntax.
@@ -72,6 +73,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />
+      },
+      {
+        path: "/login",
+        element: <Login />
       }
     ],
     errorElement: <Error />,

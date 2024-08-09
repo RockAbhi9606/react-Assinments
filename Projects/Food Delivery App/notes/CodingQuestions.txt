@@ -1,0 +1,141 @@
+Array-Based Questions
+Find the Missing Number:
+Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the missing number.
+
+function findMissingNumber(arr) {
+  const n = arr.length;
+  const total = (n * (n + 1)) / 2;
+  const sum = arr.reduce((acc, num) => acc + num, 0);
+  return total - sum;
+}
+
+-------------------------------------------------------------------
+Find Duplicate Numbers:
+Given an array of integers, find all the duplicates.
+
+
+function findDuplicates(arr) {
+  const seen = new Set();
+  const duplicates = new Set();
+  for (let num of arr) {
+    if (seen.has(num)) {
+      duplicates.add(num);
+    } else {
+      seen.add(num);
+    }
+  }
+  return Array.from(duplicates);
+}
+-------------------------------------------------------------------
+Merge Sorted Arrays:
+Merge two sorted arrays into a single sorted array.
+
+
+function mergeSortedArrays(arr1, arr2) {
+  let merged = [];
+  let i = 0, j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      merged.push(arr1[i]);
+      i++;
+    } else {
+      merged.push(arr2[j]);
+      j++;
+    }
+  }
+  return merged.concat(arr1.slice(i)).concat(arr2.slice(j));
+}
+-----------------------------------------------------------------------
+String-Based Questions
+Reverse a String:
+Write a function to reverse a string.
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+-----------------------------------------------------------------------
+Check for Palindrome:
+Check if a given string is a palindrome.
+
+
+function isPalindrome(str) {
+  const reversed = str.split('').reverse().join('');
+  return str === reversed;
+}
+
+-----------------------------------------------------------------------
+Count the Occurrences of Each Character:
+Count the occurrences of each character in a string.
+
+
+function countCharacters(str) {
+  const charCount = {};
+  for (let char of str) {
+    charCount[char] = charCount[char] + 1 || 1;
+  }
+  return charCount;
+}
+-----------------------------------------------------------------------
+Object-Based Questions
+Deep Clone an Object:
+Write a function to deeply clone an object.
+
+
+function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+-----------------------------------------------------------------------
+Flatten a Nested Object:
+Write a function to flatten a nested object.
+
+
+function flattenObject(obj, prefix = '', res = {}) {
+  for (let key in obj) {
+    let prop = prefix ? `${prefix}.${key}` : key;
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      flattenObject(obj[key], prop, res);
+    } else {
+      res[prop] = obj[key];
+    }
+  }
+  return res;
+}
+-----------------------------------------------------------------------
+General Problem-Solving Questions
+FizzBuzz:
+Print the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+
+function fizzBuzz() {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('FizzBuzz');
+    } else if (i % 3 === 0) {
+      console.log('Fizz');
+    } else if (i % 5 === 0) {
+      console.log('Buzz');
+    } else {
+      console.log(i);
+    }
+  }
+}
+-----------------------------------------------------------------------
+Find the Longest Substring Without Repeating Characters:
+Given a string, find the length of the longest substring without repeating characters.
+
+
+function lengthOfLongestSubstring(s) {
+  let map = new Map();
+  let start = 0;
+  let maxLength = 0;
+
+  for (let end = 0; end < s.length; end++) {
+    if (map.has(s[end])) {
+      start = Math.max(map.get(s[end]) + 1, start);
+    }
+    map.set(s[end], end);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+  return maxLength;
+}
+-----------------------------------------------------------------------

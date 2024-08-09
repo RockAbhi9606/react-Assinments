@@ -9,15 +9,6 @@ const Cart = () => {
   ) : (
     <div>
       <main className="max-w-[600px] pb-7 mt-12 mx-auto mb-0 shadow-xl p-4 rounded-lg">
-        <div
-          className="w-24 p-2 flex items-center gap-2 border-2 border-solid justify-center mb-10 rounded-lg bg-gray-50-200 cursor-pointer bg-green-400 text-white"
-          onClick={() => {
-            history.back();
-          }}
-        >
-          <i className="fa-solid fa-arrow-left"></i>
-          <button>Back</button>
-        </div>
         {/* RestaurentInfo */}
         <div className="flex gap-4 border-2 p-2">
           <p>
@@ -27,7 +18,6 @@ const Cart = () => {
         </div>
         {cartItems.map((cartItem) => {
           const { id, itemAttribute, name, price, defaultPrice } = cartItem;
-          console.log(cartItem);
           return (
             <div key={id}>
               {/* Add menu list */}

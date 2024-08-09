@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constant";
 
 const RestaurantCard = (props) => {
+  const [imageExists, setImageExists] = useState(true);
+
   useEffect(() => {
     imageData();
   }, []);
+
+  const {
+    name = "",
+    cuisines = [],
+    avgRating = 0,
+    costForTwo = "",
+    cloudinaryImageId = "",
+    sla = {},
+  } = props?.restaurantData?.info || {};
+
   const imageData = async () => {
-    const response = await fetch(
-      CDN_URL + props.restaurantData.info.cloudinaryImageId
-    );
+    const response = await fetch(CDN_URL + cloudinaryImageId);
     if (response.ok) {
       setImageExists(true);
     } else {
@@ -16,12 +26,11 @@ const RestaurantCard = (props) => {
     }
   };
 
-  const [imageExists, setImageExists] = useState(true);
-  const { name, cuisines, avgRating, costForTwo, cloudinaryImageId, sla } =
-    props?.restaurantData?.info;
-
   return (
-    <div className="card hover:shadow-custom hover:translate-y-[-5px] duration-300 ease-in-out max-w-72 h-[340px] rounded-xl relative">
+    <div
+      className="card hover:shadow-custom hover:translate-y-[-5px] duration-300 ease-in-out max-w-72 h-[340px] rounded-xl relative"
+      data-testid="resCard"
+    >
       <div className="badge">{sla?.lastMileTravelString}</div>
       {imageExists ? (
         <img

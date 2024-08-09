@@ -6,6 +6,7 @@ const SearchComponent = ({ searchInput, setSearchInput }) => {
         className="mx-3 w-full outline-none"
         type="text"
         name="search"
+        data-testid="content-input"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search for restaurants and food"

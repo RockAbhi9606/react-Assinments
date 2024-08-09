@@ -1,0 +1,26 @@
+Three types of testing --->development
+
+
+--Unit Testing
+--Integration Testing
+--End to End Testing -e2e testing
+
+setting up testing in our app
+
+--install React testing Library
+--Install Jest
+--Install Babel dependency   ///https://jestjs.io/docs/getting-started
+
+--Configure babel
+--Configure parcel config file to disable default babel transpilation
+
+--Jest configuration - npx jest --init
+Install jsdom
+
+--(jsdom library)jest environment -  npm i --save-dev jest-environment-jsdom
+
+--install @babel/preset-react - to make jsx work in test cases
+--Includ @babel/preset-react inside my babel Config
+--Install npm i -D @testing-library/jest-dom
+
+
