@@ -14,7 +14,6 @@ function WatchPage() {
       <iframe
         width="1000"
         height="550"
-        className="p-5 rounded-[2.5rem]"
         src={"https://www.youtube.com/embed/" + searchParams.get("v")}
         title="YouTube video player"
         frameborder="0"
