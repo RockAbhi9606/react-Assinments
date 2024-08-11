@@ -5,7 +5,7 @@
 body {
     box-sizing: border-box;
     margin: 0;
-    overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .scrollbar-thin {

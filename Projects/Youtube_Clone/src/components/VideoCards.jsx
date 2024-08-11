@@ -7,7 +7,7 @@ function VideoCard({ info }) {
   return (
     <Link
       to={"/watch?v=" + info.id}
-      className="w-72 p-2 mt-8 cursor-pointer shadow-lg rounded-lg"
+      className="w-72 p-2 mt-8 cursor-pointer hover:shadow-lg rounded-lg hover:bg-gray-200"
     >
       <img
         className="rounded-lg w-full h-auto"

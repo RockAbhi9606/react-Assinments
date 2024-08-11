@@ -10,7 +10,6 @@ const appSlice = createSlice({
             state.isMenuOpen = !state.isMenuOpen;
         },
         closeMenu: (state) => {
-            debugger
             state.isMenuOpen = false;
         }
     }
