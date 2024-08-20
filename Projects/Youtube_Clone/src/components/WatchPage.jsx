@@ -8,7 +8,7 @@ import { addMessages } from "../redux_store/sliceses/chatSlice";
 
 function WatchPage() {
   const [searchParams] = useSearchParams();
-  const [liveMessage, setLiveMessage] = useState("ि");
+  const [liveMessage, setLiveMessage] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
