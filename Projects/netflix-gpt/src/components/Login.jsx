@@ -4,6 +4,14 @@ import Header from "./Header";
 import { useFormik } from "formik";
 import { getValidationSchema } from "../utils/validation";
 import { Link } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
 
 const initialValues = {
   full_name: "",
@@ -14,13 +22,54 @@ const initialValues = {
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  const dispatch = useDispatch();
 
   const { values, errors, touched, handleBlur, handleSubmit, handleChange } =
     useFormik({
       initialValues: initialValues,
       validationSchema: getValidationSchema(isSignInForm),
       onSubmit: (values, action) => {
-        console.log(values);
+        if (!isSignInForm) {
+          //sign up logic
+          createUserWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential) => {
+              // Signed up
+              const user = userCredential.user;
+              updateProfile(user, {
+                displayName: values.full_name,
+                photoURL: "https://example.com/jane-q-user/profile.jpg",
+              })
+                .then(() => {
+                  const { uid, email, displayName } = auth.currentUser;
+                  dispatch(
+                    addUser({
+                      uid: uid,
+                      email: email,
+                      displayName: displayName,
+                    })
+                  );
+                })
+                .catch((error) => {
+                  console.log(error.message);
+                });
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              setErrorMessage(errorCode + " " + errorMessage);
+            });
+        } else {
+          //sign in logic
+          signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              console.log(user)
+            })
+            .catch((error) => {
+              setErrorMessage("User Not Found! Invalid Email and Password!");
+            });
+        }
         action.resetForm();
       },
     });
@@ -36,7 +85,7 @@ const Login = () => {
         <img
           src={BG_IMG}
           alt="bg-image"
-          className="h-screen object-cover w-screen"
+          className="h-screen object-cover w-screen opacity-80"
         />
       </div>
       <form
@@ -122,6 +171,10 @@ const Login = () => {
           </div>
         )}
 
+        <div className="mt-[-8px] text-red-600 text-sm font-semibold">
+          {errorMessage}
+        </div>
+
         <button
           type="submit"
           className="w-full bg-red-600 p-2 my-4 rounded-md font-semibold"
@@ -130,7 +183,10 @@ const Login = () => {
         </button>
 
         {isSignInForm && (
-          <Link to="forgotPassword" className="block text-center cursor-pointer pt-2 hover:underline hover:text-gray-300">
+          <Link
+            to="forgotPassword"
+            className="block text-center cursor-pointer pt-2 hover:underline hover:text-gray-300"
+          >
             Forgot Password?
           </Link>
         )}

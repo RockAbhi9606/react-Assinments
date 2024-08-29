@@ -67,3 +67,14 @@
 
 # Project Setup
 - Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+
+
+
+Steps for Deployment:
+    0. Instal frebase CLI - `npm install -g firebase-tools`
+    1. Firebase Login - `firebase login`
+    2. Initilize Firebase - `firebase init`, then select Hosting
+    3. Deploy command - `firebase deploy`
+
+
+production URL- ` https://abhishek-netflixgpt.web.app`
