@@ -78,7 +78,7 @@ const Header = ({ isForgotPassword }) => {
               My List
             </Link>
             <Link to="#" className="cursor-pointer">
-              Browse by langauges
+              Browse by Langauges
             </Link>
           </div>
         )}
@@ -87,7 +87,7 @@ const Header = ({ isForgotPassword }) => {
         <div className="flex gap-2 items-center">
           <i className="scale-100 text-gray-200 fa-sharp fa-solid fa-circle-user"></i>
           <button
-            className="mt-[-4px] font-semibold text-gray-700 text-xl"
+            className="mt-[-4px] font-semibold text-slate-100 text-lg"
             onClick={handleSignOut}
           >
             Hello, {user.displayName}

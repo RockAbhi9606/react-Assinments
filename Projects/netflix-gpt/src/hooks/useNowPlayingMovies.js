@@ -3,7 +3,7 @@ import { addNowPlayingMovies } from '../redux/moviesSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-const useNowPlayongMovies = () => {
+const useNowPlayingMovies = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,4 +20,4 @@ const useNowPlayongMovies = () => {
     };
 }
 
-export default useNowPlayongMovies
+export default useNowPlayingMovies

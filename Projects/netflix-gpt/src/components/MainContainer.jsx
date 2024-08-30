@@ -7,9 +7,8 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies.nowPlayingMovies);
   if (!movies) return;
 
-  const mainMovie = movies[0];
-  console.log(mainMovie);
-
+  const randomId = Math.floor(Math.random() * 21);
+  const mainMovie = movies[randomId];
   const { original_title, overview, id } = mainMovie;
 
   return (

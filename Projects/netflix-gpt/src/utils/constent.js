@@ -2,7 +2,7 @@ export const BG_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/031c42b9-0c81-
 
 export const FORGOT_PASSWORD_IMG_URL = "https://assets.nflxext.com/ffe/siteui/acquisition/login/login-the-crown_2-1500x1000.jpg"
 
-//export const NOW_PLAYING_MOVIES_API = "https://api.themoviedb.org/3/movie/now_playing?page=1"
+export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w780/"
 
 export const API_OPTIONS = {
     method: 'GET',

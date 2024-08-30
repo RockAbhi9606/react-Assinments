@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-next:before {
+    margin-left: -50px;
+}
+
+body{
+    overflow-x: hidden;
+}
