@@ -4,7 +4,7 @@ import { IMAGE_CDN_URL } from "../utils/constent";
 const MovieCard = ({ movieList }) => {
   const { poster_path, original_title } = movieList;
   return (
-    <div className="w-36 rounded-lg overflow-hidden">
+    <div className="w-36 rounded-lg overflow-hidden cursor-pointer">
       <img src={IMAGE_CDN_URL + poster_path} alt={original_title} />
     </div>
   );
