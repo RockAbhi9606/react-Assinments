@@ -108,7 +108,7 @@ const Login = () => {
               onBlur={handleBlur}
             />
             {errors.full_name && touched.full_name ? (
-              <p className="mt-[-15px] text-red-600 text-sm font-semibold">
+              <p className="-mt-4 text-red-600 text-sm font-semibold">
                 {errors.full_name}
               </p>
             ) : null}
@@ -127,7 +127,7 @@ const Login = () => {
             onBlur={handleBlur}
           />
           {errors.email && touched.email ? (
-            <p className="mt-[-15px] text-red-600 text-sm font-semibold">
+            <p className="-mt-4 text-red-600 text-sm font-semibold">
               {errors.email}
             </p>
           ) : null}
@@ -145,7 +145,7 @@ const Login = () => {
             onBlur={handleBlur}
           />
           {errors.password && touched.password ? (
-            <p className="mt-[-15px] text-red-600 text-sm font-semibold">
+            <p className="-mt-4 text-red-600 text-sm font-semibold">
               {errors.password}
             </p>
           ) : null}
@@ -164,14 +164,14 @@ const Login = () => {
               onBlur={handleBlur}
             />
             {errors.confirm_password && touched.confirm_password ? (
-              <p className="mt-[-15px] text-red-600 text-sm font-semibold">
+              <p className="-mt-4 text-red-600 text-sm font-semibold">
                 {errors.confirm_password}
               </p>
             ) : null}
           </div>
         )}
 
-        <div className="mt-[-8px] text-red-600 text-sm font-semibold">
+        <div className="-mt-2 text-red-600 text-sm font-semibold">
           {errorMessage}
         </div>
 

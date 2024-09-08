@@ -4,10 +4,24 @@ export const FORGOT_PASSWORD_IMG_URL = "https://assets.nflxext.com/ffe/siteui/ac
 
 export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w780/"
 
+export const IMAGE_NOT_FOUND_URL = "https://m.media-amazon.com/images/I/61s8vyZLSzL._AC_UF894,1000_QL80_.jpg"
+
+export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+
+export const GOOGLE_AI_KEY = process.env.REACT_APP_GOOGLE_AI_KEY
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
         accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDA4ZDc5MDIwYzZmZWFkZDM3ZjIyODViMGM0ZTc3ZCIsIm5iZiI6MTcyNDg0NDMxNS4wMzM5OTUsInN1YiI6IjY2Y2YwNzNlNzRjMjRhZWVlZDcyMjM4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p6PR2er_X8t7Mt3vcdpnmgzbRIVqf5OwF36LVBwHXIc'
+        Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`
     }
 };
+
+export const prefarredLangauges = [{
+    identifier: 'en', name: 'English'
+}, {
+    identifier: 'hi', name: 'Hindi'
+}, {
+    identifier: 'es', name: 'Spanish'
+}]
