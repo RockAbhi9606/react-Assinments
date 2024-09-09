@@ -60,7 +60,11 @@ const Header = ({ isForgotPassword }) => {
   };
 
   return (
-    <div className="absolute py-1 px-20 w-full bg-gradient-to-b from-black sm:from-blue-900 md:from-green-900 z-10 flex items-center justify-between flex-col md:flex-row">
+    <div
+      className={`absolute py-1 md:px-20 px-6 w-full bg-gradient-to-b from-black sm:from-blue-900 md:from-green-900 z-10 flex items-center justify-between ${
+        !isForgotPassword ? "flex-col" : "flex-row"
+      } md:flex-row`}
+    >
       <div className="flex items-center gap-4">
         <Link to="/">
           <img
@@ -132,7 +136,7 @@ const Header = ({ isForgotPassword }) => {
       {isForgotPassword && (
         <Link
           to="/"
-          className="text-xl text-red-800 font-semibold sm:text-xs md:text-sm"
+          className="text-xl text-red-800 font-semibold sm:text-xs md:text-lg"
         >
           Sign In
         </Link>
