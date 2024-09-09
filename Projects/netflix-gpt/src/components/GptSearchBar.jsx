@@ -75,7 +75,7 @@ const GptSearchBar = () => {
         onSubmit={(e) => e.preventDefault()}
       >
         <input
-          className="px-5 py-2 col-span-9 md:col-span-10 rounded-lg outline-none"
+          className="p-2 col-span-9 md:col-span-10 rounded-lg outline-none md:placeholder:text-sm placeholder:text-xs md:px-5"
           type="text"
           value={gptInputText}
           placeholder={langaues[selectLangauge]?.gptSearchPlaceholder}
@@ -83,7 +83,7 @@ const GptSearchBar = () => {
         />
         <button
           title={langaues[selectLangauge]?.Search}
-          className="text-white font-semibold bg-red-500 px-4 py-2 rounded-lg col-span-3 md:col-span-2 flex justify-center"
+          className="text-white font-semibold bg-red-500 px-4 py-2 rounded-lg col-span-3 md:col-span-2 flex justify-center text-xs md:text-sm items-center"
           onClick={handleGptSearchText}
         >
           {langaues[selectLangauge]?.Search}
