@@ -73,7 +73,7 @@
 Steps for Deployment:
     0. Instal frebase CLI - `npm install -g firebase-tools`
     1. Firebase Login - `firebase login`
-    2. Initilize Firebase - `firebase init`, then select Hosting
+    2. Initilize Firebase - `firebase init`, then select Hosting (base folder: build)
     3. Deploy command - `firebase deploy`
 
 
